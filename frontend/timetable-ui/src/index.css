@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL,wght@0..1,100..700&display=swap');
+
+@import "tailwindcss";
+@config "./tailwind.config.js";
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+button,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #3755c3;
+  outline-offset: 2px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.desktop-main-offset {
+  margin-left: 16rem;
+}
+
+.timetable-scroll {
+  max-height: min(620px, calc(100vh - 19rem));
+  scrollbar-gutter: stable both-edges;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f3ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c5d5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #757684;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+.pulse-soft {
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+@media (max-width: 1180px) {
+  .desktop-sidebar {
+    width: 220px;
+  }
+  .desktop-main-offset {
+    margin-left: 220px;
+  }
+  .inspector {
+    width: 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+  .desktop-sidebar {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+  .desktop-sidebar.mobile-sidebar-open {
+    display: flex;
+    width: min(18rem, 86vw);
+    box-shadow: 12px 0 30px rgba(19, 27, 46, 0.16);
+  }
+  .desktop-sidebar.mobile-sidebar-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(19, 27, 46, 0.22);
+  }
+  .desktop-main-offset {
+    margin-left: 0;
+  }
+  .inspector {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
